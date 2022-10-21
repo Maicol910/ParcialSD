@@ -57,13 +57,13 @@ public class GradeServiceImpl implements GradeService{
     }
 
     @Override
-    public Grade deleteGrade(Grade grade) {
-        Grade gradeDB = getGrade(grade.getId());
-        if (gradeDB ==null){
-            return  null;
+    public boolean deleteGrade(Grade grade) {
+        if (grade == null){
+            return  false;
         }
         //grade.setState("DELETED");
-        return gradeRepository.save(grade);
+        gradeRepository.delete(grade);
+        return true;
     }
 
     @Override

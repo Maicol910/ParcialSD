@@ -9,6 +9,6 @@ public interface GradeService {
 
     public Grade createGrade(Grade grade);
     public Grade updateGrade(Grade grade);
-    public Grade deleteGrade(Grade grade);
+    public boolean deleteGrade(Grade grade);
     public  Grade getGrade(Long id);
 }

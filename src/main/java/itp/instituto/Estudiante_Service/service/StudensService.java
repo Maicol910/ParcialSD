@@ -11,6 +11,6 @@ public interface StudensService {
 
     public Students createStudents(Students students);
     public Students updateStudents(Students students);
-    public Students deleteStudents(Students students);
+    public boolean deleteStudents(Students students);
     public Students getStudents(Long id);
 }

@@ -61,13 +61,13 @@ public class StudentsServiceImpl implements StudensService{
     }
 
     @Override
-    public Students deleteStudents(Students students) {
-        Students studentsDB = getStudents(students.getId());
-        if (studentsDB == null){
-            return null;
+    public boolean deleteStudents(Students students) {
+        if (students == null){
+            return false;
         }
         //students.setState("DELETED");
-        return studentsRepository.save(students);
+        studentsRepository.delete(students);
+        return true;
     }
 
     @Override

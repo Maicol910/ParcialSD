@@ -101,12 +101,13 @@ public class StudentsRest {
         log.info("Fetching & Deleting Students with id {}",id);
 
         Students students = studensService.getStudents(id);
-        if (null == students){
+        boolean deleted = studensService.deleteStudents(students);
+
+        if (!deleted){
             log.error("Unable to delete. Students with id {} not found.", id);
             return ResponseEntity.notFound().build();
         }
-        students = studensService.deleteStudents(students);
-        return ResponseEntity.ok(students);
+        return ResponseEntity.ok().build();
     }
 
 

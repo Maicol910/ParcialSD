@@ -101,12 +101,12 @@ public class GradeRest {
         log.info("Fetching & Deleting Grade with id {}", id);
 
         Grade grade = gradeService.getGrade(id);
-        if ( null == grade ) {
+        boolean deleted = gradeService.deleteGrade(grade);
+        if ( !deleted ) {
             log.error("Unable to delete. Grade with id {} not found.", id);
             return  ResponseEntity.notFound().build();
         }
-        grade = gradeService.deleteGrade(grade);
-        return  ResponseEntity.ok(grade);
+        return  ResponseEntity.ok().build();
     }
 
     private String formatMessage( BindingResult result){
