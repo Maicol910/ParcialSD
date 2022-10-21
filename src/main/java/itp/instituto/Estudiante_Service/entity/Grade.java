@@ -13,6 +13,11 @@ public class Grade implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
 
+    @Column(name = "id" , unique = true ,length = 8, nullable = false, insertable = false, updatable = false)
+    private String numberID;
+
+
+    @Column(name="name", nullable=false)
+    private String gradeName;
 }
